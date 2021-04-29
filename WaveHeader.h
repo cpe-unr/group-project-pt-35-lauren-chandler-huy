@@ -2,10 +2,9 @@
 //Date: 4/20/21
 //Group Project
 
-#ifndef PROGRAMMING_ASSIGNMENT_3KL_WAVEHEADER_H
-#define PROGRAMMING_ASSIGNMENT_3KL_WAVEHEADER_H
+#ifndef WAVEHEADER_H
+#define WAVEHEADER_H
 
-// This header copied from https://gist.github.com/Jon-Schneider/8b7c53d27a7a13346a643dac9c19d34f
 /*
  * https://docs.fileformat.com/audio/wav/
  * Positions	Sample Value	Description
@@ -24,24 +23,24 @@
 41-44	File size (data)	Size of the data section.
  */
 typedef struct wav_header {
-    // RIFF Header
-    char riff_header[4]; // Contains "RIFF"
-    int wav_size; // Size of the wav portion of the file, which follows the first 8 bytes. File size - 8
-    char wave_header[4]; // Contains "WAVE"
+	// RIFF Header
+	char riff_header[4]; // Contains "RIFF"
+	int wav_size; // Size of the wav portion of the file, which follows the first 8 bytes. File size - 8
+	char wave_header[4]; // Contains "WAVE"
 
-    // Format Header
-    char fmt_header[4]; // Contains "fmt " (includes trailing space)
-    int fmt_chunk_size; // Should be 16 for PCM
-    short audio_format; // Should be 1 for PCM. 3 for IEEE Float
-    short num_channels;
-    int sample_rate;
-    int byte_rate; // Number of bytes per second. sample_rate * num_channels * Bytes Per Sample
-    short sample_alignment; // num_channels * Bytes Per Sample
-    short bit_depth; // Number of bits per sample
+	// Format Header
+	char fmt_header[4]; // Contains "fmt " (includes trailing space)
+	int fmt_chunk_size; // Should be 16 for PCM
+	short audio_format; // Should be 1 for PCM. 3 for IEEE Float
+	short num_channels;
+	int sample_rate;
+	int byte_rate; // Number of bytes per second. sample_rate * num_channels * Bytes Per Sample
+	short sample_alignment; // num_channels * Bytes Per Sample
+	short bit_depth; // Number of bits per sample
 
-    // Data
-    char data_header[4]; // Contains "data"
-    int data_bytes; // Number of bytes in data. Number of samples * num_channels * sample byte size
+	// Data
+	char data_header[4]; // Contains "data"
+	int data_bytes; // Number of bytes in data. Number of samples * num_channels * sample byte size
     // char bytes[]; // Remainder of wave file is bytes
 } wav_header;
 #endif //WAVEHEADER_H
