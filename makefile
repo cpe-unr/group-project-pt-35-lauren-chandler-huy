@@ -7,6 +7,9 @@ readtest: Wav.o WavMain.cpp
 
 Wav.o: Wav.cpp Wav.h WaveHeader.h
 	g++ -c -std=c++11 Wav.cpp
+	
+Wav.a: Wav.o
+	ar suvr Wav.a wav.o
 
 clean:
 	rm *.o readtest

@@ -2,6 +2,12 @@
 //Date: 4/20/21
 //Group Project
 
+
+//add and make new structs for each part so we can read that in and check it through the read in file.
+//maybe consider creating a wav that is inherited by an 16bit and 8bit class. 
+//ask if typecasting to a short buffer changes the data within with unsigned char.
+
+
 #ifndef WAVEHEADER_H
 #define WAVEHEADER_H
 
@@ -22,12 +28,17 @@
 37-40	“data”	“data” chunk header. Marks the beginning of the data section.
 41-44	File size (data)	Size of the data section.
  */
-typedef struct wav_header {
+typedef struct wav_header 
+{
 	// RIFF Header
 	char riff_header[4]; // Contains "RIFF"
 	int wav_size; // Size of the wav portion of the file, which follows the first 8 bytes. File size - 8
 	char wave_header[4]; // Contains "WAVE"
 
+} wav_header;
+
+typedef struct fmt_header
+{
 	// Format Header
 	char fmt_header[4]; // Contains "fmt " (includes trailing space)
 	int fmt_chunk_size; // Should be 16 for PCM
@@ -37,10 +48,24 @@ typedef struct wav_header {
 	int byte_rate; // Number of bytes per second. sample_rate * num_channels * Bytes Per Sample
 	short sample_alignment; // num_channels * Bytes Per Sample
 	short bit_depth; // Number of bits per sample
+	
+} fmt_header;
 
+typedef struct data_header
+{
 	// Data
 	char data_header[4]; // Contains "data"
 	int data_bytes; // Number of bytes in data. Number of samples * num_channels * sample byte size
     // char bytes[]; // Remainder of wave file is bytes
-} wav_header;
+    
+} data_header;
+
+typedef struct meta_header
+{
+	char meta_header[4]; // Contains "LIST"
+	int meta_chunks; // Number of bytes in metadata.
+	char chunk_header[4]; // Contains "INFO"
+	
+	
+} meta_header;
 #endif //WAVEHEADER_H
