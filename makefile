@@ -10,6 +10,15 @@ Wav.o: Wav.cpp Wav.h WaveHeader.h
 	
 Wav.a: Wav.o
 	ar suvr Wav.a wav.o
+	
+Echo.o: Echo.cpp Echo.h Processor.h
+	g++ -c -std=c++11 Echo.cpp
+
+Limit.o: Limit.cpp Limit.h Processor.h
+	g++ -c -std=c++11 Limit.cpp
+
+Noise.o: Noise.cpp Noise.h Processor.h
+	g++ -c -std=c++11 Noise.cpp
 
 clean:
 	rm *.o readtest

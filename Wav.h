@@ -9,19 +9,32 @@
 
 class Wav
 {
-private:
-    unsigned char* buffer = NULL;
-    wav_header waveHeader;
-    
+protected:
+	unsigned char* buffer = NULL;
+	bool mono = false;
+	bool stereo = false;
+	wav_header waveHeader;
+	fmt_header FMT;
+	data_header Data;
+	meta_header Meta;
+	chunk_info Chunk;
+	    
 public:
-    void readFile(const std::string &fileName);
-    void writeFile(const std::string &outFileName);
-    
-    unsigned char *getBuffer();
-    int getBufferSize() const;
-    
-    virtual ~Wav();
-};
+	Wav() = default;
+	
+	bool getMono () const;
+	void setMono (bool newMono);
 
+	bool getStereo () const;
+	void setStereo (bool newStereo);
+
+	void readFile(const std::string &fileName);
+	void writeFile(const std::string &outFileName);
+	    
+	unsigned char* getBuffer();
+	int getBufferSize() const;
+	
+	virtual ~Wav();
+};
 
 #endif //WAV_H

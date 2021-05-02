@@ -9,8 +9,11 @@
 
 int main ()
 {
-	std::cout << "Hello World!" << std::endl;
+	Wav wave_test;
+	wave_test.readFile("yes-8bit-mono.wav");
+	wave_test.readFile("yes-8-bit-stereo.wav");
+	wave_test.readFile("yes-16-bit-mono.wav");
+	wave_test.readFile("yes-26-bit-stereo.wav");
 	
 	return 0;
 }
-

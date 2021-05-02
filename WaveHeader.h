@@ -40,7 +40,7 @@ typedef struct wav_header
 typedef struct fmt_header
 {
 	// Format Header
-	char fmt_header[4]; // Contains "fmt " (includes trailing space)
+	char fmt_head[4]; // Contains "fmt " (includes trailing space)
 	int fmt_chunk_size; // Should be 16 for PCM
 	short audio_format; // Should be 1 for PCM. 3 for IEEE Float
 	short num_channels;
@@ -54,18 +54,24 @@ typedef struct fmt_header
 typedef struct data_header
 {
 	// Data
-	char data_header[4]; // Contains "data"
+	char data_head[4]; // Contains "data"
 	int data_bytes; // Number of bytes in data. Number of samples * num_channels * sample byte size
-    // char bytes[]; // Remainder of wave file is bytes
+	// char bytes[]; // Remainder of wave file is bytes
     
 } data_header;
 
 typedef struct meta_header
 {
-	char meta_header[4]; // Contains "LIST"
+	char meta_head[4]; // Contains "LIST"
 	int meta_chunks; // Number of bytes in metadata.
 	char chunk_header[4]; // Contains "INFO"
 	
-	
 } meta_header;
+
+typedef struct chunk_info
+{
+	char sub_header[4]; // Contains ID of subchunk
+	int sub_size; // Number of characters in chunk data
+	
+} chunk_info;
 #endif //WAVEHEADER_H
