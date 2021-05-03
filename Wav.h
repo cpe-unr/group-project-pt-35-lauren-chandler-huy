@@ -19,7 +19,7 @@ protected:
 	
 	std::vector<std::string> file_list;
 	std::vector<std::string> chunk_list;
-	
+
 	bool mono = false;
 	bool stereo = false;
 	wav_header waveHeader;
@@ -27,7 +27,7 @@ protected:
 	data_header Data;
 	meta_header Meta;
 	chunk_info Chunk;
-	
+
 public:
 	Wav() = default;
 	

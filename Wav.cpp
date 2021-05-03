@@ -60,6 +60,7 @@ void Wav::readFile(const std::string &fileName)
 		
 		file.read((char*)&Meta, sizeof(meta_header));
 		
+
 		for(int i = sizeof(meta_header); i < Meta.meta_chunks; i += Chunk.sub_size)
 		{
 			std::string meta_hold;
@@ -69,6 +70,7 @@ void Wav::readFile(const std::string &fileName)
 			file.read(info_holder, Chunk.sub_size);
 			
 			Chunk.
+
 		}
 		file.close();
 	}
