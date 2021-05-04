@@ -8,9 +8,7 @@
 #include <vector>
 #include <string>
 
-#include "WaveHeader.h"
-#include "IPrintable.h"
-#include "Subchunk.h"
+#include "Wav.h"
 
 vector<ClassA*> test_vector;
 
@@ -27,10 +25,4 @@ void iterator(vector<subchunk*> vect)
 {
 	 for (vector<ClassA*>::iterator it = test_vector.begin(); it != test_vector.end(); it++)
    	 *it->getInfo();
-}
-
-void iterator(vector<subchunk*> vect)
-{
-	 for (vector<ClassA*>::iterator it = test_vector.begin(); it != test_vector.end(); it++)
-   	 *it->getSize();
 }
