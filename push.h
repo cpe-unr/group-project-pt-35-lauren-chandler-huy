@@ -5,24 +5,23 @@
 #ifndef PUSH_H
 #define PUSH_H
 
+#include <iostream>	
 #include <vector>
 #include <string>
 
 #include "Wav.h"
 
-vector<ClassA*> test_vector;
-
-  test_vector.push_back(class_derived_a);
-  test_vector.push_back(class_another_a);
-
-void iterator(vector<string> vect)
+class Push
 {
-	 for (vector<ClassA*>::iterator it = test_vector.begin(); it != test_vector.end(); it++)
-    	 *it->getId();
-}
+	int input = 0;	
+	
+public:
+	int getInput();
+	void setInput();
+	
+	void printDetails(std::vector<std::string> file_names);
+	void printDetails(std::vector<Subchunk*> meta_subs);
+	
+};
+#endif //PUSH_H
 
-void iterator(vector<subchunk*> vect)
-{
-	 for (vector<ClassA*>::iterator it = test_vector.begin(); it != test_vector.end(); it++)
-   	 *it->getInfo();
-}
