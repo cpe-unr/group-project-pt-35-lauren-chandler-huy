@@ -27,6 +27,16 @@ void Wav::setStereo (bool newStereo)
 	stereo = newStereo;
 }
 
+int Wav::getBits () const
+{
+	return bits;
+}
+
+void Wav::setBits (int newBits)
+{
+	bits = newBits;
+}
+
 void Wav::readFile(const std::string &fileName)
 {
 	std::ifstream file(fileName,std::ios::binary | std::ios::in);
@@ -55,7 +65,7 @@ void Wav::readFile(const std::string &fileName)
 		
 		if(FMT.bit_depth == 16);
 		{
-			short* shortBuffer = reinterpret_cast<short*>(buffer);
+			
 		}
 		
 		file.read((char*)&Meta, sizeof(meta_header));
@@ -82,13 +92,6 @@ void Wav::readFile(const std::string &fileName)
 		
 		file.close();
 	}
-	
-
-}
-
-unsigned char* Wav::getBuffer()
-{
-	return buffer;
 }
 
 void Wav::writeFile(const std::string &outFileName) 
@@ -99,6 +102,29 @@ void Wav::writeFile(const std::string &outFileName)
 	outFile.write((char*)&Data, sizeof(data_header));
 	outFile.write((char*)buffer, Data.data_bytes);
 	outFile.close();
+}
+
+unsigned char* Wav::getBuffer()
+{
+	return buffer;
+}
+
+short* getShortBuffer()
+{
+	short* short_buffer = reinterpret_cast<short*>(setbuffer);
+	return short_buffer;
+}
+
+int Wav::getBufferSize() const
+{
+	if(FMT.bit_depth == 16)
+	{
+		return Data.data_bytes/2;
+	}
+	else
+	{
+		return Data.data_bytes;
+	}
 }
 
 std::vector<std::string> Wav::getFiles()
@@ -115,9 +141,10 @@ Wav::~Wav()
 {
 	if(buffer != NULL)
 	delete[] buffer;
-}
-
-int Wav::getBufferSize() const
-{
-	return Data.data_bytes;
+	
+	for(int i = 0; i < chunk_list.size(); i++)
+	{
+		delete chunk_list[i];
+	}
+	chunk_list.clear();
 }

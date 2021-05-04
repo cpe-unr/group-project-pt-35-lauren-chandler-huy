@@ -12,5 +12,6 @@ int main ()
 	wave_read.readFile("yes-16-bit-mono.wav");
 	wave_read.readFile("yes-26-bit-stereo.wav");
 	
+
 	return 0;
 }

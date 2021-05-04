@@ -24,4 +24,4 @@ Noise.o: Noise.cpp Noise.h Processor.h
 	g++ -c -std=c++11 Noise.cpp
 
 clean:
-	rm *.o readtest
+	rm *.o WaveReader
