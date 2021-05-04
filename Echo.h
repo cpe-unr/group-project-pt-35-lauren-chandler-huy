@@ -5,9 +5,8 @@
 #ifndef ECHO_H
 #define ECHO_H
 
-#include "Processor.h"
-
-class Echo : public Processor
+template <typename A>
+class Echo
 {
     int delay;
 
@@ -17,7 +16,8 @@ public:
     int getDelay () const;
     void setDelay (int);
 
-    void processBuffer(unsigned char* buffer, int bufferSize) override;
+    void processBuffer(A buffer, int bufferSize);
 };
 
+#include "Echo.cpp"
 #endif //ECHO_H

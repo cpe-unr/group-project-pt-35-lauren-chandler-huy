@@ -14,7 +14,7 @@ void Limiter::setPercentDb (float newPercent)
 	percentDb = newPercent;
 }
 
-void Limiter::processBuffer(unsigned char* buffer, int bufferSize)
+void Limiter::processBuffer(A buffer, int bufferSize, int cap)
 {
 	float highDecib, lowDecib;
 	highDecib = (percentDb * 128) + 128;

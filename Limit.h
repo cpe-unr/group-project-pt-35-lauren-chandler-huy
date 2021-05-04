@@ -5,9 +5,8 @@
 #ifndef LIMIT_H
 #define LIMIT_H
 
-#include "Processor.h"
-
-class Limiter : public Processor
+template <typename A>
+class Limiter
 {
     float percentDb;
 
@@ -17,7 +16,8 @@ public:
     float getPercentDb () const;
     void setPercentDb (float);
 
-    void processBuffer(unsigned char*, int) override;
+    void processBuffer(A buffer, int buffer_size);
 };
 
+#include "Limit.cpp"
 #endif //LIMIT_H

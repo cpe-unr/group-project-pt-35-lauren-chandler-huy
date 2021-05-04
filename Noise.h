@@ -5,9 +5,8 @@
 #ifndef NOISE_H
 #define NOISE_H
 
-#include "Processor.h"
-
-class NoiseGate : public Processor
+template <typename A>
+class NoiseGate
 {
     float percent = 0;
 
@@ -17,8 +16,9 @@ public:
     float getPercent () const;
     void setPercent (float);
 
-    void processBuffer(unsigned char* buffer, int bufferSize) override;
+    void processBuffer(A buffer, int bufferSize) override;
 
 };
 
+#include "Noise.cpp"
 #endif //NOISE_H
