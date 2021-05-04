@@ -63,10 +63,7 @@ void Wav::readFile(const std::string &fileName)
 		buffer = new unsigned char[Data.data_bytes];
 		file.read((char*)buffer, Data.data_bytes);
 		
-		if(FMT.bit_depth == 16);
-		{
-			
-		}
+		setBits(FMT.bit_depth);
 		
 		file.read((char*)&Meta, sizeof(meta_header));
 		
@@ -109,9 +106,9 @@ unsigned char* Wav::getBuffer()
 	return buffer;
 }
 
-short* getShortBuffer()
+short* Wav::getShortBuffer()
 {
-	short* short_buffer = reinterpret_cast<short*>(setbuffer);
+	short* short_buffer = reinterpret_cast<short*>(buffer);
 	return short_buffer;
 }
 
