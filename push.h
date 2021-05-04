@@ -10,7 +10,7 @@
 
 #include "Wav.h"
 
-vector<ClassA*> test_vector;
+/*vector<ClassA*> test_vector;
 
   test_vector.push_back(class_derived_a);
   test_vector.push_back(class_another_a);
@@ -26,3 +26,6 @@ void iterator(vector<subchunk*> vect)
 	 for (vector<ClassA*>::iterator it = test_vector.begin(); it != test_vector.end(); it++)
    	 *it->getInfo();
 }
+*/
+
+#endif //PUSH_H
