@@ -13,7 +13,7 @@
 class IPrintable
 {
 	virtual std::vector<std::string> getFiles() = 0;
-	virtual std::vector<*Subchunk> getMeta() = 0;
+	virtual std::vector<Subchunk*> getMeta() = 0;
 
 };
 

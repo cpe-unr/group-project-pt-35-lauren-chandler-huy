@@ -2,17 +2,17 @@
 #Date: 4/20/21
 #Group Project
 
-readtest: Wav.o WavMain.cpp 
-	g++ -std=c++11 Wav.o WavMain.cpp -o readtest
+WaveReader: Wav.o Subchunk.o main.cpp 
+	g++ -std=c++11 Wav.o Subchunk.o main.cpp -o WaveReader
+	
+Subchunk.o: Subchunk.cpp Subchunk.h
+	g++ -c -std=c++11 Subchunk.cpp
 
 Wav.o: Wav.cpp Wav.h WaveHeader.h IPrintable.h Subchunk.h
 	g++ -c -std=c++11 Wav.cpp
 	
 Wav.a: Wav.o
 	ar suvr Wav.a wav.o
-	
-Subchunk.o: Subchunk.cpp Subchunk.h
-	g++ -c -std=c++11 Subchunk.cpp
 
 Echo.o: Echo.cpp Echo.h Processor.h
 	g++ -c -std=c++11 Echo.cpp

@@ -64,14 +64,22 @@ void Wav::readFile(const std::string &fileName)
 		for(int i = sizeof(meta_header); i < Meta.meta_chunks; i += Chunk.sub_size)
 		{
 			std::string meta_hold;
+			Subchunk* Sub = new Subchunk();
 			
 			file.read((char*)&Chunk, sizeof(chunk_info));
+			
+			meta_hold = Chunk.sub_header;
+			Sub->Subchunk::setId(meta_hold);
+			Sub->Subchunk::setSize(Chunk.sub_size);
+			
 			char info_holder[Chunk.sub_size];
 			file.read(info_holder, Chunk.sub_size);
-			
-			Chunk.
 
+			meta_hold = info_holder;
+			Sub->Subchunk::setInfo(meta_hold);
+			chunk_list.emplace_back(Sub);
 		}
+		
 		file.close();
 	}
 	
@@ -98,7 +106,7 @@ std::vector<std::string> Wav::getFiles()
 	return file_list;
 }
 
-std::vector<std::string> Wav::getMeta()
+std::vector<Subchunk*> Wav::getMeta()
 {
 	return chunk_list;
 }

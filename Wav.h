@@ -18,7 +18,7 @@ protected:
 	unsigned char* buffer = NULL;
 	
 	std::vector<std::string> file_list;
-	std::vector<std::string> chunk_list;
+	std::vector<Subchunk*> chunk_list;
 
 	bool mono = false;
 	bool stereo = false;
@@ -27,7 +27,7 @@ protected:
 	data_header Data;
 	meta_header Meta;
 	chunk_info Chunk;
-
+	
 public:
 	Wav() = default;
 	
@@ -44,7 +44,7 @@ public:
 	int getBufferSize() const;
 	
 	std::vector<std::string> getFiles() override;
-	std::vector<std::string> getMeta() override;
+	std::vector<Subchunk*> getMeta() override;
 	
 	virtual ~Wav();
 };

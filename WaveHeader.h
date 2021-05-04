@@ -2,12 +2,6 @@
 //Date: 4/20/21
 //Group Project
 
-
-//add and make new structs for each part so we can read that in and check it through the read in file.
-//maybe consider creating a wav that is inherited by an 16bit and 8bit class. 
-//ask if typecasting to a short buffer changes the data within with unsigned char.
-
-
 #ifndef WAVEHEADER_H
 #define WAVEHEADER_H
 
