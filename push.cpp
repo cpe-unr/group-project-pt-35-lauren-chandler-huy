@@ -2,9 +2,6 @@
 //Date: 4/20/21
 //Group Project
 
-#ifndef WAV_H
-#define WAV_H
-
 #include <vector>
 #include <string>
 
