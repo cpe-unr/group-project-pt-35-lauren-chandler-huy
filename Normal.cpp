@@ -2,6 +2,4 @@
 //Date: 5/3/21
 //Group Project 
 
-#include "Echo.h"
-
-
+#include "Normal.h"

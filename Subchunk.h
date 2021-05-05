@@ -10,7 +10,7 @@
 class Subchunk
 {
 protected:
-	std::string Id, info;
+	std::string id, info;
 	int size;
 	    
 public:
@@ -24,8 +24,6 @@ public:
 	
 	int getSize () const;
 	void setSize (int newSize);
-	
-	std::string convertArray (char* array, int length);
 };
 
 #endif //SUBCHUNK_H

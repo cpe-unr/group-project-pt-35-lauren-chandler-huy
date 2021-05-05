@@ -8,27 +8,69 @@
  */
 #include "Wav.h"
 #include "Echo.h"
-#include "Limit.h"
+#include "Normal.h"
 #include "Noise.h"
 #include "push.h"
 
 int main ()
 {
-	Wav wave_read;
-
+	Wav wave_read;	
+	
 	wave_read.readFile("yes-8bit-mono.wav");
 	if (wave_read.getBits() == 16)
 	{
-		Echo<short>* echo = new Echo<short>(1000);
-		Limiter<short>* limit = new Limiter<short>(0.8);
-		NoiseGate<short>* noise = new NoiseGate<short>(0.1); 
+		Echo<short*>* echo = new Echo<short*>(1000);
+		Normal<short*>* normal = new Normal<short*>(0.8);
+		NoiseGate<short*>* noise = new NoiseGate<short*>(0.1); 
+	}
+	else
+	{
+		Echo<unsigned char*>* echo = new Echo<unsigned char*>(1000);
+		Normal<unsigned char*>* normal = new Normal<unsigned char*>(0.8);
+		NoiseGate<unsigned char*>* noise = new NoiseGate<unsigned char*>(0.1);
 	}
 	
 	wave_read.readFile("yes-8-bit-stereo.wav");
+	if (wave_read.getBits() == 16)
+	{
+		Echo<short*>* echo = new Echo<short*>(1000);
+		Normal<short*>* normal = new Normal<short*>(0.8);
+		NoiseGate<short*>* noise = new NoiseGate<short*>(0.1); 
+	}
+	else
+	{
+		Echo<unsigned char*>* echo = new Echo<unsigned char*>(1000);
+		Normal<unsigned char*>* normal = new Normal<unsigned char*>(0.8);
+		NoiseGate<unsigned char*>* noise = new NoiseGate<unsigned char*>(0.1);
+	}
 	
 	wave_read.readFile("yes-16-bit-mono.wav");
+	if (wave_read.getBits() == 16)
+	{
+		Echo<short*>* echo = new Echo<short*>(1000);
+		Normal<short*>* normal = new Normal<short*>(0.8);
+		NoiseGate<short*>* noise = new NoiseGate<short*>(0.1); 
+	}
+	else
+	{
+		Echo<unsigned char*>* echo = new Echo<unsigned char*>(1000);
+		Normal<unsigned char*>* normal = new Normal<unsigned char*>(0.8);
+		NoiseGate<unsigned char*>* noise = new NoiseGate<unsigned char*>(0.1);
+	}
 	
 	wave_read.readFile("yes-26-bit-stereo.wav");
+	if (wave_read.getBits() == 16)
+	{
+		Echo<short*>* echo = new Echo<short*>(1000);
+		Normal<short*>* normal = new Normal<short*>(0.8);
+		NoiseGate<short*>* noise = new NoiseGate<short*>(0.1); 
+	}
+	else
+	{
+		Echo<unsigned char*>* echo = new Echo<unsigned char*>(1000);
+		Normal<unsigned char*>* normal = new Normal<unsigned char*>(0.8);
+		NoiseGate<unsigned char*>* noise = new NoiseGate<unsigned char*>(0.1);
+	}
 	
 	return 0;
 }

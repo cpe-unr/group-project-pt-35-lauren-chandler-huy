@@ -1,6 +1,6 @@
-//Author: Huy Tran
-//Date: 3/18/21
-//Programming Assignment 3
+//Author: Huy Tran, Lauren Feldman
+//Date: 5/3/21
+//Group Project 
 
 #include "Noise.h"
 

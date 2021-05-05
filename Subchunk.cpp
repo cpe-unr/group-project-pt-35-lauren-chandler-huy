@@ -6,12 +6,12 @@
 
 std::string Subchunk::getId () const
 {
-	return Id;
+	return id;
 }
 
 void Subchunk::setId (std::string newId)
 {
-	Id = newId;
+	id = newId;
 }
 	
 std::string Subchunk::getInfo () const
