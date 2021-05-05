@@ -1,0 +1,24 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include \char`\"{}Wav.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Echo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Normal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Noise.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}push.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The main function appropriately creats and calls the proper functions within each object to process user input and select the proper wavs and processors required. This main should first call the push object to print out input to the user then receive that input to open the correct file and processor. The processor will then run and return a buffer that will be written 

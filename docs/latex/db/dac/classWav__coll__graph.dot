@@ -1,0 +1,19 @@
+digraph "Wav"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Wav",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="IPrintable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d1/dc4/classIPrintable.html",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Meta" ];
+  Node3 [label="meta_header",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/d16/structmeta__header.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" FMT" ];
+  Node4 [label="fmt_header",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d6/d53/structfmt__header.html",tooltip=" "];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Data" ];
+  Node5 [label="data_header",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$df/d59/structdata__header.html",tooltip=" "];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Chunk" ];
+  Node6 [label="chunk_info",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$d9/d5a/structchunk__info.html",tooltip=" "];
+  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" waveHeader" ];
+  Node7 [label="wav_header",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$dc/dd5/structwav__header.html",tooltip=" "];
+}
